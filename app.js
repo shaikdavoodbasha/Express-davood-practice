@@ -13,7 +13,7 @@ app.use((req,res,next)=>{
 });
 app.post("/users",(req,res)=>{
     console.log(req.reqestbody)
-    res.end('Done dawoodbhawei')
+    res.end('Done dawood')
 })
 app.get("/",(req,res)=>{
     res.end("Hello this is home-page")
