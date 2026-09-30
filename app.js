@@ -5,6 +5,12 @@ const app = express();
 
 
 app.use(express.json())
+app.use(express.static("public"))
+
+app.get("/dull",(req,res)=>{
+    res.sendFile(`${import.meta.dirname}/just.png`)
+
+})
 app.use("/login",(req,res,next)=>{
     console.log(req.originalUrl);
     if(req.body.password ==="davood"){
