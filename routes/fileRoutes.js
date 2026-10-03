@@ -1,9 +1,13 @@
 
 import path from "node:path";
 import express from 'express';
+import filesData from '../fileDB.json' with {type:"json"};
 
+
+
+console.log(filesData)
 import {
-    
+    writeFile,
     rm,
     rename,
     mkdir
@@ -19,6 +23,26 @@ const publicDir = path.join(
     "..",
     "public"
 );
+
+
+router.post("/:filename",(req,res)=>{
+    const {filename} = req.params;
+    const extention = path.extname(filename);
+    const id = crypto.randomUUID();
+    const fullname = `${id}${extention}`;
+    const writestream = createWriteStream(`./storage/${fullname}`);
+    req.pipe(writestream);
+    req.on("end",()=>{
+        filesData.push({
+            id,
+            extention,
+            name :filename,
+        });
+        console.log(filesData);
+        writeFile("./fileDB.json",JSON.stringify(filesData))
+        res.json({message:"File Uploaded"});
+    });
+});
 
 router.post(
     "/{*filename}",

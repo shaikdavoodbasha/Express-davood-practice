@@ -1,0 +1,13 @@
+[
+    {
+        "id": 10,
+        "name": "test.png",
+        "parentDir": 321,
+        "size": 433
+    },
+    {
+        "id": "2633c9e9-6f83-4e73-aff4-834ec5b80453",
+        "extention": ".txt",
+        "name": "one.txt"
+    }
+]
