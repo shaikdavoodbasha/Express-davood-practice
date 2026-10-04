@@ -189,6 +189,9 @@ app.use(cors());
 app.use("/directory",directoryRoutes)
 app.use("/files",fileRoutes)
 
+app.use((err,req,res,next)=>{
+    res.status(500).json({message:"Something went wrong!"});
+})
 
 
 // ========================================
