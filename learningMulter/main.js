@@ -2,23 +2,17 @@ import express from 'express';
 
 const app = express();
 
-const PORT = 4000;
+app.use(express.static("public"));
 
-app.get("/",(req,res)=>{
-    res.send("Hello,World");
-});
-
-app.post("/upload",(req,res)=>{
+app.post('/user',(req,res)=>{
     req.on("data",(chunk)=>{
         console.log(chunk.toString());
-    })
-})
+    });
+    res.json({message:"Got Data"});
+});
 
-req.on("end",()=>{
-    res.json({message:"Data send!"})
-})
-
+const PORT = 4000;
 
 app.listen(PORT,()=>{
-    console.log("App is listening at port 4000")
+    console.log('Appication ruuning at port 4000');
 })
