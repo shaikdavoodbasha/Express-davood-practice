@@ -77,5 +77,5 @@ console.log(a)
 
 client.close()
 
-//application architecture
+application architecture
 //one-tier two-tier three-tier
